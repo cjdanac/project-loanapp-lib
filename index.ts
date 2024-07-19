@@ -1,7 +1,7 @@
 import { Environment, EnvProps } from "./src/configs";
-import { GetDataModel } from "./src/model/data/DataModel";
-import { PaymentModel } from "./src/model/payment/PaymentModel";
-import { payment } from "./src/request/payment/paymentRequest";
+import { LoanModel } from "./src/model/loan/LoanModel";
+import { loan } from "./src/request/loan/loanRequest";
+
 
 export {
     Environment,
@@ -9,13 +9,11 @@ export {
 }
 
 export {
-
-    GetDataModel,
-    PaymentModel,
+    LoanModel
     
 }
 
 export {
-    payment,
+    loan,
     
 }

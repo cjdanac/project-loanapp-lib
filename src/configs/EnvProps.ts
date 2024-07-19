@@ -1,5 +1,5 @@
 
 export type EnvProps = {
-    API_URL: string,
-    LOAN: string
-  };
+  API_URL: string,
+  LOAN: string
+};
