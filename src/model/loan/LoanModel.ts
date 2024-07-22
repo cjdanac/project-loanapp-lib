@@ -4,7 +4,7 @@ export class LoanModel {
         loanAmount?: number;
         interestPerMonth?: number;
         loanTerm?: number;
-        monthlyPayment?:string
+        monthlyPayment?: number;
         paymentDates?: string[];
     };
 
