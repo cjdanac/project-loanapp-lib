@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosInstance } from "axios";
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
 import { Environment } from "../configs";
 
  
@@ -11,14 +11,17 @@ const apiInstance = axios.create({
 });
  
 apiInstance.interceptors.response.use(
-  function (response) {
-    return response;
-  },
-  async function (error) {
-    if (!apiInstance.defaults.baseURL) {
+  response => response, // Pass through the response if successful
+  async (error: AxiosError) => {
+    const { config } = error;
+
+    // If baseURL is not set or an error with baseURL, reconfigure and retry
+    if (!apiInstance.defaults.baseURL && config) {
       apiInstance.defaults.baseURL = Environment.API_URL;
-      return apiInstance(error.config)
+      return apiInstance(config as AxiosRequestConfig);
     }
+
+    // Handle other errors
     return Promise.reject(error);
   }
 );
