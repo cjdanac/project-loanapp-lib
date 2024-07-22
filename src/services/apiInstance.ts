@@ -17,6 +17,7 @@ apiInstance.interceptors.response.use(
   async function (error) {
     if (!apiInstance.defaults.baseURL) {
       apiInstance.defaults.baseURL = Environment.API_URL;
+      return apiInstance(error.config)
     }
     return Promise.reject(error);
   }
