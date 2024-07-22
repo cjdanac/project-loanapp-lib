@@ -4,8 +4,6 @@ import { Environment } from "../configs";
 
 const apiInstance = axios.create({
   baseURL: Environment.API_URL,
-  withCredentials: true
-
 });
 
 apiInstance.interceptors.response.use(

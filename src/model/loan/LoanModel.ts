@@ -4,8 +4,8 @@ export class LoanModel {
         loanAmount?: number;
         interestPerMonth?: number;
         loanTerm?: number;
-        monthlyPayment?:[]
-        dateOfPayment?: string;
+        monthlyPayment?:string
+        paymentDates?: string[];
     };
 
     constructor(formModel?: LoanModel) {
