@@ -11,17 +11,14 @@ const apiInstance = axios.create({
 });
  
 apiInstance.interceptors.response.use(
-  response => response, // Pass through the response if successful
+  response => response,
   async (error: AxiosError) => {
     const { config } = error;
 
-    // If baseURL is not set or an error with baseURL, reconfigure and retry
     if (!apiInstance.defaults.baseURL && config) {
       apiInstance.defaults.baseURL = Environment.API_URL;
       return apiInstance(config as AxiosRequestConfig);
     }
-
-    // Handle other errors
     return Promise.reject(error);
   }
 );
